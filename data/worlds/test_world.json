@@ -1,0 +1,92 @@
+
+{
+  "world_id": "test_world",
+  "name": "测试世界",
+  "version": "1.0.0",
+  "description": "用于验证 Scop B 层世界规则系统的测试世界",
+
+  "rules": {
+    "attributes": [
+      {
+        "attribute_id": "strength",
+        "name": "力量",
+        "description": "代表角色的身体力量"
+      },
+      {
+        "attribute_id": "agility",
+        "name": "敏捷",
+        "description": "代表角色的速度与灵活性"
+      },
+      {
+        "attribute_id": "intelligence",
+        "name": "智力",
+        "description": "代表角色的理解与分析能力"
+      }
+    ],
+
+    "resources": [
+      {
+        "resource_id": "hp",
+        "name": "生命值",
+        "description": "角色承受伤害的能力",
+        "initial_maximum": 20,
+        "initial_current": 20
+      },
+      {
+        "resource_id": "san",
+        "name": "理智",
+        "description": "角色的精神稳定程度",
+        "initial_maximum": 50,
+        "initial_current": 50
+      }
+    ],
+
+    "check_rules": [
+      {
+        "rule_id": "physical_action",
+        "name": "身体行动检定",
+        "attribute_id": "strength",
+        "dice_type": "d20",
+        "difficulty": 15,
+        "description": "用于需要身体力量的行动"
+      },
+      {
+        "rule_id": "agility_action",
+        "name": "敏捷行动检定",
+        "attribute_id": "agility",
+        "dice_type": "d20",
+        "difficulty": 12,
+        "description": "用于需要速度与灵活性的行动"
+      }
+    ],
+
+    "action_rules": [
+      {
+        "rule_id": "heavy_door",
+        "name": "推动沉重石门",
+        "action_type": "non_combat",
+        "resolution_type": "requires_check",
+        "check_rule_id": "physical_action",
+        "description": "推动沉重且未上锁的石门"
+      },
+      {
+        "rule_id": "unlocked_door",
+        "name": "打开未上锁的门",
+        "action_type": "non_combat",
+        "resolution_type": "direct_success",
+        "check_rule_id": null,
+        "description": "打开没有阻碍的普通门"
+      },
+
+      {
+        "rule_id": "forbidden_action",
+        "name": "禁止行动",
+        "action_type": "non_combat",
+        "resolution_type": "rejected",
+        "check_rule_id": null,
+        "description": "这个行动在当前世界规则中不允许执行"
+      }
+    ]
+  }
+}
+

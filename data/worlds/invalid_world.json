@@ -1,0 +1,20 @@
+{
+  "world_id": "invalid_world",
+  "name": "重复属性测试世界",
+  "version": "1.0.0",
+  "rules": {
+    "attributes": [
+      {
+        "attribute_id": "strength",
+        "name": "力量"
+      },
+      {
+        "attribute_id": "strength",
+        "name": "体魄"
+      }
+    ],
+    "resources": [],
+    "check_rules": [],
+    "action_rules": []
+  }
+}
